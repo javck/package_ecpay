@@ -14,6 +14,7 @@ class EcPayController extends Controller
         $this->checkoutResponse = $checkoutResponse;
     }
 
+    //當付款完成，EcPay會回呼這個網址
     public function notifyUrl(Request $request)
     {
         $serverPost = $request->post();
@@ -32,6 +33,7 @@ class EcPayController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws \TsaiYiHua\ECPay\Exceptions\ECPayException
      */
+    //預設付款完之後，前台轉址函式
     public function returnUrl(Request $request)
     {
         $serverPost = $request->post();

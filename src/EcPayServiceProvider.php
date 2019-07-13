@@ -1,5 +1,5 @@
 <?php
-namespace Javck\EcPay;
+namespace Javck\Ecpay;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -11,8 +11,8 @@ class EcPayServiceProvider extends ServiceProvider
             $this->registerConfigs();
         }
         $this->registerResources();
-        if (ECPay::$useECPayRoute) {
-            $this->loadRoutesFrom(__DIR__ . '/routes.php');
+        if (EcPay::$useECPayRoute) {
+            include dirname(__DIR__) . '/routes/ecpay.php';
         }
     }
 

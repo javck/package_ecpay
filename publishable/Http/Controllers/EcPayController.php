@@ -5,13 +5,37 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Javck\Ecpay\Collections\CheckoutResponseCollection;
 use Javck\Ecpay\Services\StringService;
+use Javck\Ecpay\Checkout;
 
 class EcPayController extends Controller
 {
     protected $checkoutResponse;
-    public function __construct(CheckoutResponseCollection $checkoutResponse)
+    protected $checkout;
+    public function __construct(CheckoutResponseCollection $checkoutResponse, Checkout $checkout)
     {
         $this->checkoutResponse = $checkoutResponse;
+        $this->checkout = $checkout;
+    }
+
+    /*建立綠界訂單
+    itemDesc 訂單描述
+    itemName 訂單名稱
+    totalAmt 訂單金額
+    payMethod 付款方式，支援ALL, Credit, ATM, WebATM
+    userId  用戶流水號
+    */
+    public function createOrder($itemDesc, $itemName, $totalAmt, $payMethod = 'ALL', $userId = null)
+    {
+        $formData = [
+            'ItemDescription' => $itemDesc,
+            'ItemName' => $itemName,
+            'TotalAmount' => $totalAmt,
+            'PaymentMethod' => $payMethod
+        ];
+        if(isset($userId)){
+            $formData['UserId'] = $userId;
+        }
+        return $this->checkout->setPostData($formData)->send();
     }
 
     //當付款完成，EcPay會回呼這個網址

@@ -2,13 +2,13 @@
 namespace Javck\Ecpay;
 
 use Illuminate\Support\Collection;
-use Javck\Ecpay\Exceptions\ECPayException;
+use Javck\Ecpay\Exceptions\EcPayException;
 use Javck\Ecpay\Services\StringService;
 
 trait EcPayTrait
 {
     /**
-     * Send data to ECPay
+     * Send data to Ecpay
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws ECPayException
      */
@@ -19,14 +19,14 @@ trait EcPayTrait
             'apiUrl' => $this->apiUrl,
             'postData' => $this->postData
         ];
-        if (ECPay::$sendForm === null) {
+        if (Ecpay::$sendForm === null) {
             if (config('ecpay.SendForm') == null) {
                 return view('ecpay::send', $data);
             } else {
                 return view(config('ecpay.SendForm'), $data);
             }
         } else {
-            return view(ECPay::$sendForm, $data);
+            return view(Ecpay::$sendForm, $data);
         }
     }
 
@@ -53,7 +53,7 @@ trait EcPayTrait
         if ($httpStatus == 200) {
             return $this->parseResponse($response);
         } else {
-            throw new ECPayException('HTTP Error with code '.$httpStatus);
+            throw new EcPayException('HTTP Error with code '.$httpStatus);
         }
     }
     /**
@@ -64,7 +64,7 @@ trait EcPayTrait
     {
         /** @var Collection $this->postData */
         if ($this->postData->isEmpty()) {
-            throw new ECPayException('Post Data is Empty');
+            throw new EcPayException('Post Data is Empty');
         }
         $hashData = [
             'key' => $this->hashKey,
@@ -96,7 +96,7 @@ trait EcPayTrait
                 $responseCollection->put($param, $value);
             }
         } else {
-            throw new ECPayException($response);
+            throw new EcPayException($response);
         }
         return $responseCollection;
     }

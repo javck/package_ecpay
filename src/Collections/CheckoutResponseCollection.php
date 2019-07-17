@@ -2,7 +2,7 @@
 namespace Javck\Ecpay\Collections;
 
 use Illuminate\Support\Collection;
-use Javck\Ecpay\Exceptions\ECPayException;
+use Javck\Ecpay\Exceptions\EcPayException;
 
 class CheckoutResponseCollection extends Collection
 {

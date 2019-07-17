@@ -8,7 +8,6 @@
 
 namespace Javck\Ecpay;
 
-
 class EcPay
 {
     public static $useECPayRoute = true;
@@ -20,4 +19,6 @@ class EcPay
         static::$useECPayRoute = false;
         return new static;
     }
+
+
 }

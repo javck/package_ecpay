@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 
 class QueryTradeInfo
 {
-    use ECPayTrait;
+    use EcPayTrait;
 
     protected $apiUrl;
     protected $postData;

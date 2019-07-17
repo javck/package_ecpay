@@ -3,7 +3,7 @@ namespace Javck\Ecpay\Collections;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Javck\Ecpay\Exceptions\ECPayException;
+use Javck\Ecpay\Exceptions\EcPayException;
 use Javck\Ecpay\Services\StringService;
 use Javck\Ecpay\Validations\InvoiceValidation;
 

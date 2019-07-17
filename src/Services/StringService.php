@@ -2,19 +2,19 @@
 namespace Javck\Ecpay\Services;
 
 use Javck\Ecpay\Checkout;
-use Javck\Ecpay\Exceptions\ECPayException;
+use Javck\Ecpay\Exceptions\EcPayException;
 
 class StringService
 {
     /**
      * Identify Number Generator
      * @return string
-     * @throws ECPayException
+     * @throws EcPayException
      */
     static public function identifyNumberGenerator($prefix='A')
     {
         if (strlen($prefix) > 2) {
-            throw new ECPayException('ID prefix character maximum is 2 characters');
+            throw new EcPayException('ID prefix character maximum is 2 characters');
         }
         $intMsConst = 1000000;
         try {

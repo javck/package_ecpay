@@ -17,7 +17,7 @@ use javck\Ecpay\Validations\InvoiceValidation;
 
 class Invoice
 {
-    use ECPayTrait;
+    use EcPayTrait;
 
     protected $apiUrl;
     protected $postData;

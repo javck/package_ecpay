@@ -1,13 +1,13 @@
 <?php
-namespace Javck\Ecpay\Validations;
+namespace Javck\EcPay\Validations;
 
 use Illuminate\Support\Facades\Validator;
-use Javck\Ecpay\Constants\ECPayCarruerType;
-use Javck\Ecpay\Constants\ECPayClearanceMark;
-use Javck\Ecpay\Constants\ECPayDonation;
-use Javck\Ecpay\Constants\ECPayInvType;
-use Javck\Ecpay\Constants\ECPayPrintMark;
-use Javck\Ecpay\Constants\ECPayTaxType;
+use Javck\EcPay\Constants\EcPayCarruerType;
+use Javck\EcPay\Constants\EcPayClearanceMark;
+use Javck\EcPay\Constants\EcPayDonation;
+use Javck\EcPay\Constants\EcPayInvType;
+use Javck\EcPay\Constants\EcPayPrintMark;
+use Javck\EcPay\Constants\EcPayTaxType;
 
 class InvoiceValidation
 {
@@ -35,15 +35,15 @@ class InvoiceValidation
             'CustomerAddr' => 'required_if:Print,1|max:200',
             'CustomerPhone' => 'required_if:CustomerEmail,null|max:20',
             'CustomerEmail' => 'required_if:CustomerPhone,null|max:200',
-            'ClearanceMark' => 'in:'.implode(',', ECPayClearanceMark::getConstantValues()->toArray()),
-            'TaxType' => 'in:'.implode(',', ECPayTaxType::getConstantValues()->toArray()),
-            'CarruerType' => 'in:'.implode(',', ECPayCarruerType::getConstantValues()->toArray()),
+            'ClearanceMark' => 'in:'.implode(',', EcPayClearanceMark::getConstantValues()->toArray()),
+            'TaxType' => 'in:'.implode(',', EcPayTaxType::getConstantValues()->toArray()),
+            'CarruerType' => 'in:'.implode(',', EcPayCarruerType::getConstantValues()->toArray()),
             'CarruerNum' => 'max:64',
-            'Donation' => 'in:'.implode(',', ECPayDonation::getConstantValues()->toArray()),
+            'Donation' => 'in:'.implode(',', EcPayDonation::getConstantValues()->toArray()),
             'LoveCode' => 'required_if:Donation,1|max:7',
-            'Print' => 'in:'.implode(',', ECPayPrintMark::getConstantValues()->toArray()),
+            'Print' => 'in:'.implode(',', EcPayPrintMark::getConstantValues()->toArray()),
             'DelayDay' => 'int|min:0|max:15',
-            'InvType' => 'in:'.implode(',', ECPayInvType::getConstantValues()->toArray())
+            'InvType' => 'in:'.implode(',', EcPayInvType::getConstantValues()->toArray())
         ]);
         return $validator;
     }

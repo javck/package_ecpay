@@ -1,10 +1,10 @@
 <?php
-namespace Javck\Ecpay\Validations;
+namespace Javck\EcPay\Validations;
 
 use Illuminate\Support\Facades\Validator;
-use Javck\Ecpay\Constants\ECPayExtraPaymentInfo;
-use Javck\Ecpay\Constants\ECPayPaymentMethod;
-use Javck\Ecpay\Constants\ECPayPaymentMethodItem;
+use Javck\EcPay\Constants\EcPayExtraPaymentInfo;
+use Javck\EcPay\Constants\EcPayPaymentMethod;
+use Javck\EcPay\Constants\EcPayPaymentMethodItem;
 
 class PaymentValidation
 {
@@ -29,14 +29,14 @@ class PaymentValidation
             'TotalAmount' => 'required_if:Items,""',
             'Items' => 'required_if:ItemName,""',
             'ItemDescription' => 'required|max:200',
-            'PaymentMethod' => 'in:'.implode(',', ECPayPaymentMethod::getConstantValues()->toArray()),
+            'PaymentMethod' => 'in:'.implode(',', EcPayPaymentMethod::getConstantValues()->toArray()),
             'StoreId' => 'alpha_num|max:20',
             'ClientBackURL' => 'max:200',
             'ItemURL' => 'max:200',
             'Remark' => 'max:100',
-            'ChooseSubPayment' => 'in:'.implode(',', ECPayPaymentMethodItem::getConstantValues()->toArray()),
+            'ChooseSubPayment' => 'in:'.implode(',', EcPayPaymentMethodItem::getConstantValues()->toArray()),
             'OrderResultURL' => 'max:200',
-            'NeedExtraPaidInfo' => 'in:'.implode(',', ECPayExtraPaymentInfo::getConstantValues()->toArray()),
+            'NeedExtraPaidInfo' => 'in:'.implode(',', EcPayExtraPaymentInfo::getConstantValues()->toArray()),
             'IgnorePayment' => 'max:100',
             'PlatformID' => 'max:20',
             'CustomField1' => 'max:50',

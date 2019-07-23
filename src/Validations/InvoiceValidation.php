@@ -1,13 +1,13 @@
 <?php
-namespace Javck\EcPay\Validations;
+namespace Javck\Ecpay\Validations;
 
 use Illuminate\Support\Facades\Validator;
-use Javck\EcPay\Constants\EcPayCarruerType;
-use Javck\EcPay\Constants\EcPayClearanceMark;
-use Javck\EcPay\Constants\EcPayDonation;
-use Javck\EcPay\Constants\EcPayInvType;
-use Javck\EcPay\Constants\EcPayPrintMark;
-use Javck\EcPay\Constants\EcPayTaxType;
+use Javck\Ecpay\Constants\EcPayCarruerType;
+use Javck\Ecpay\Constants\EcPayClearanceMark;
+use Javck\Ecpay\Constants\EcPayDonation;
+use Javck\Ecpay\Constants\EcPayInvType;
+use Javck\Ecpay\Constants\EcPayPrintMark;
+use Javck\Ecpay\Constants\EcPayTaxType;
 
 class InvoiceValidation
 {

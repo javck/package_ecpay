@@ -1,10 +1,10 @@
 <?php
-namespace Javck\EcPay\Validations;
+namespace Javck\Ecpay\Validations;
 
 use Illuminate\Support\Facades\Validator;
-use Javck\EcPay\Constants\EcPayExtraPaymentInfo;
-use Javck\EcPay\Constants\EcPayPaymentMethod;
-use Javck\EcPay\Constants\EcPayPaymentMethodItem;
+use Javck\Ecpay\Constants\EcPayExtraPaymentInfo;
+use Javck\Ecpay\Constants\EcPayPaymentMethod;
+use Javck\Ecpay\Constants\EcPayPaymentMethodItem;
 
 class PaymentValidation
 {
